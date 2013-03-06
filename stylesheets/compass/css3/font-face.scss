@@ -23,6 +23,15 @@
 
 // Order of the includes matters, and it is: normal, bold, italic, bold+italic.
 
+@function font-files($args...) {
+    $ret: ();
+    @for $i from 1 through length($args)/2 {
+        $ret: append($ret, (url(nth($args, $i * 2 - 1)) format(quote(nth($args, $i * 2)))), comma);
+    }
+
+    @return $ret;
+}
+
 @mixin font-face(
   $name, 
   $font-files, 
@@ -34,8 +43,8 @@
   @font-face {
     font-family: quote($name);
     @if $eot {
-      src: font-url($eot);
-      $font-files: font-url($iefont) unquote("format('eot')"), $font-files; 
+      src: url($eot);
+      $font-files: url($iefont) unquote("format('eot')"), $font-files; 
     }
     src: $font-files;
     @if $weight {
