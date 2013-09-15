@@ -2,7 +2,7 @@
 
 class scss_compass {
 	protected $libFunctions = array("lib_compact");
-	
+
 	static public $true = array("keyword", "true");
 	static public $false = array("keyword", "false");
 
@@ -27,15 +27,22 @@ class scss_compass {
 	}
 
 	public function lib_compact($args) {
-		list($list) = $args;
-		if ($list[0] != "list") return $list;
-
+		$list = $args;
+		$separator = ',';
 		$filtered = array();
-		foreach ($list[2] as $item) {
-			if ($item != self::$false) $filtered[] = $item;
+
+		if (count($args) == 1 && $args[0][0] == 'list') {
+			$list = $args[0][2];
+			$separator = $args[0][1];
 		}
-		$list[2] = $filtered;
-		return $list;
+
+		foreach ($list as $item) {
+			if ($item != self::$false) {
+				$filtered[] = $item;
+			}
+		}
+
+		return array('list', $separator, $filtered);
 	}
 }
 
