@@ -30,8 +30,10 @@ extract script if you are updating the version of Compass that is included.
 
     <?php
     require "vendor/autoload.php";
+    
+    use Leafo\ScssPhp\Compiler;
 
-    $scss = new scssc();
+    $scss = new Compiler();
     new scss_compass($scss);
 
     echo $scss->compile('
