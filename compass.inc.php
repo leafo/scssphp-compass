@@ -1,12 +1,14 @@
 <?php
 
+use Leafo\ScssPhp\Compiler;
+
 class scss_compass {
 	protected $libFunctions = array("lib_compact");
 	
 	static public $true = array("keyword", "true");
 	static public $false = array("keyword", "false");
 
-	public function __construct($scss) {
+	public function __construct(Compiler $scss) {
 		$this->scss = $scss;
 		$this->updateImportPath();
 		$this->registerFunctions();
