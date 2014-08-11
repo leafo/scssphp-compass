@@ -3,7 +3,7 @@
     "description": "Compass for scssphp",
     "homepage": "http://leafo.net/scssphp/",
     "require": {
-        "leafo/scssphp": "dev-master"
+        "leafo/scssphp": "0.1.*"
     },
     "authors": [
         {
