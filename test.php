@@ -3,7 +3,9 @@
 require "vendor/autoload.php";
 require "compass.inc.php";
 
-$scss = new scssc();
+use Leafo\ScssPhp\Compiler;
+
+$scss = new Compiler();
 new scss_compass($scss);
 
 echo $scss->compile('
