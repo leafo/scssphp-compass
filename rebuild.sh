@@ -14,7 +14,7 @@ fi
 [ -d "$STYLESHEETS" ] && rm -r "$STYLESHEETS"
 mkdir "$STYLESHEETS"
 
-cp -r compass/frameworks/compass/stylesheets/* "$STYLESHEETS"
+cp -r compass/core/stylesheets/* "$STYLESHEETS"
 
 # rename all the files
 for file in $(find "$STYLESHEETS" | grep scss$); do
